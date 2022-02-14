@@ -1,0 +1,32 @@
+locale: en_US
+
+package_update: true
+package_upgrade: true
+packages:
+  - ripgrep
+  - fd-find
+  - cmake
+  - libvterm-dev
+  - npm
+
+snap:
+  commands:
+    - snap install emacs
+
+hostname: dev-vm
+
+users:
+  - name: jonnyp
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+
+runcmd:
+  - "mkdir -p /home/jonnyp/bin"
+  - "git clone https://github.com/jonprairie/misc-scripts.git /home/jonnyp/bin/misc-scripts"
+  - "/home/jonnyp/bin/misc-scripts/setup-dotfiles.sh jonnyp /home/jonnyp https://github.com/jonprairie/dots.git
+  - "/home/jonnyp/bin/misc-scripts/setup-sshd-config.sh jonnyp /home/jonnyp"
+  - "/home/jonnyp/bin/misc-scripts/setup-auth-keys.sh jonnyp /home/jonnyp https://github.com/jonprairie/.ssh.git
+  - "git clone https://github.com/jonprairie/.doom.d.git /home/jonnyp/.doom.d"
+  - "/home/jonnyp/bin/misc-scripts/setup-doom-emacs.sh jonnyp /home/jonnyp"
+  - "/home/jonnyp/bin/misc-scripts/make-24bit-color-term.sh"

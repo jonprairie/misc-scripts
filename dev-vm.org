@@ -1,0 +1,122 @@
+#+TITLE: Dev VM Configuration
+
+* Dev VM configuration
+:PROPERTIES:
+:header-args: :tangle dev-vm.yaml
+:END:
+
+** User variables setup
+:PROPERTIES:
+:header-args: :tangle no :noweb yes
+:END:
+
+#+name: user
+#+begin_src text
+jonnyp
+#+end_src
+
+#+name: home
+#+begin_src text
+/home/<<user>>
+#+end_src
+
+#+name: gh-user
+#+begin_src text
+jonprairie
+#+end_src
+
+#+name: gh-home
+#+begin_src text
+https://github.com/<<gh-user>>
+#+end_src
+
+#+name: misc-scripts-repo
+#+begin_src text
+<<gh-home>>/misc-scripts.git
+#+end_src
+
+#+name: dots-repo
+#+begin_src text
+<<gh-home>>/dots.git
+#+end_src
+
+#+name: dotssh-repo
+#+begin_src text
+<<gh-home>>/.ssh.git
+#+end_src
+
+#+name: dotdoom-repo
+#+begin_src text
+<<gh-home>>/.doom.d.git
+#+end_src
+
+** Locale
+
+#+begin_src yaml
+locale: en_US
+#+end_src
+
+** Apt packages
+
+#+name: doom-deps
+#+begin_src yaml :tangle no
+  - ripgrep
+  - fd-find
+#+end_src
+
+#+name: doom-vterm-deps
+#+begin_src yaml :tangle no
+  - cmake
+  - libvterm-dev
+#+end_src
+
+#+begin_src yaml :noweb yes
+package_update: true
+package_upgrade: true
+packages:
+  <<doom-deps>>
+  <<doom-vterm-deps>>
+  - npm
+#+end_src
+
+** Snap packages
+
+#+begin_src yaml
+snap:
+  commands:
+    - snap install emacs
+#+end_src
+
+** Hostname
+
+#+begin_src yaml
+hostname: dev-vm
+#+end_src
+
+** Users
+
+create the user and give them no-password sudo abilities
+
+#+begin_src yaml :noweb yes
+users:
+  - name: <<user>>
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+#+end_src
+
+** Miscellaneous commands
+
+download and run some provisioning scripts
+
+#+begin_src yaml :noweb yes
+runcmd:
+  - "mkdir -p <<home>>/bin"
+  - "git clone <<misc-scripts-repo>> <<home>>/bin/misc-scripts"
+  - "<<home>>/bin/misc-scripts/setup-dotfiles.sh <<user>> <<home>> <<dots-repo>>
+  - "<<home>>/bin/misc-scripts/setup-sshd-config.sh <<user>> <<home>>"
+  - "<<home>>/bin/misc-scripts/setup-auth-keys.sh <<user>> <<home>> <<dotssh-repo>>
+  - "git clone <<dotdoom-repo>> <<home>>/.doom.d"
+  - "<<home>>/bin/misc-scripts/setup-doom-emacs.sh <<user>> <<home>>"
+  - "<<home>>/bin/misc-scripts/make-24bit-color-term.sh"
+#+end_src
