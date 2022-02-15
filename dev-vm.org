@@ -135,9 +135,9 @@ download and run some provisioning scripts
 runcmd:
   - "mkdir -p <<home>>/bin"
   - "git clone <<misc-scripts-repo>> <<home>>/bin/misc-scripts"
-  - "<<home>>/bin/misc-scripts/setup-dotfiles.sh <<user>> <<home>> <<dots-repo>>
+  - "<<home>>/bin/misc-scripts/setup-dotfiles.sh <<user>> <<home>> <<dots-repo>>"
   - "<<home>>/bin/misc-scripts/setup-sshd-config.sh <<user>> <<home>>"
-  - "<<home>>/bin/misc-scripts/setup-auth-keys.sh <<user>> <<home>> <<dotssh-repo>>
+  - "<<home>>/bin/misc-scripts/setup-auth-keys.sh <<user>> <<home>> <<dotssh-repo>>"
   - "git clone <<dotdoom-repo>> <<home>>/.doom.d"
   - "<<home>>/bin/misc-scripts/setup-doom-emacs.sh <<user>> <<home>>"
   - "<<home>>/bin/misc-scripts/make-24bit-color-term.sh"
