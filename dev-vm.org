@@ -1,8 +1,8 @@
 #+TITLE: Dev VM Configuration
 
-* Dev VM configuration
+* Dev VM configuration for Multipass
 :PROPERTIES:
-:header-args: :tangle dev-vm.yaml
+:header-args: :tangle dev-vm.yaml :noweb-ref dev-vm-config
 :END:
 
 ** User variables setup
@@ -56,16 +56,19 @@ https://github.com/<<gh-user>>
 locale: en_US
 #+end_src
 
-** Apt packages
+** Apt dependencies
+:PROPERTIES:
+:header-args: :tangle no :noweb-ref no
+:END:
 
 #+name: doom-deps
-#+begin_src yaml :tangle no
+#+begin_src yaml
   - ripgrep
   - fd-find
 #+end_src
 
 #+name: doom-vterm-deps
-#+begin_src yaml :tangle no
+#+begin_src yaml
   - cmake
   - libvterm-dev
 #+end_src
@@ -75,7 +78,7 @@ mosh build dependencies from: https://gist.github.com/charliesneath/3c0790f00b4c
 should be able to install from apt once [[https://github.com/mobile-shell/mosh/issues/1115][this issue]] is resolved.
 
 #+name: mosh-deps
-#+begin_src yaml :tangle no
+#+begin_src yaml
   - debhelper
   - autotools-dev
   - protobuf-compiler
@@ -90,9 +93,12 @@ should be able to install from apt once [[https://github.com/mobile-shell/mosh/i
   - locales
 #+end_src
 
+** Apt packages
+
 #+begin_src yaml :noweb yes
 package_update: true
 package_upgrade: true
+package_reboot_if_required: true
 packages:
   <<doom-deps>>
   <<doom-vterm-deps>>
@@ -105,7 +111,7 @@ packages:
 #+begin_src yaml
 snap:
   commands:
-    - snap install emacs
+    - snap install emacs --classic
     - snap install multipass
 #+end_src
 
@@ -135,11 +141,40 @@ download and run some provisioning scripts
 runcmd:
   - "mkdir -p <<home>>/bin"
   - "git clone <<misc-scripts-repo>> <<home>>/bin/misc-scripts"
-  - "<<home>>/bin/misc-scripts/setup-dotfiles.sh <<user>> <<home>> <<dots-repo>>"
-  - "<<home>>/bin/misc-scripts/setup-sshd-config.sh <<user>> <<home>>"
-  - "<<home>>/bin/misc-scripts/setup-auth-keys.sh <<user>> <<home>> <<dotssh-repo>>"
+  - "chmod +x <<home>>/bin/misc-scripts/setup-scripts.sh"
+  - "sudo <<home>>/bin/misc-scripts/setup-scripts.sh <<user>> <<home>>"
+  - "sudo <<home>>/bin/misc-scripts/setup-dotfiles.sh <<user>> <<home>> <<dots-repo>>"
+  - "sudo <<home>>/bin/misc-scripts/setup-sshd-config.sh <<user>> <<home>>"
+  - "sudo <<home>>/bin/misc-scripts/setup-auth-keys.sh <<user>> <<home>> <<dotssh-repo>>"
   - "git clone <<dotdoom-repo>> <<home>>/.doom.d"
-  - "<<home>>/bin/misc-scripts/setup-doom-emacs.sh <<user>> <<home>>"
-  - "<<home>>/bin/misc-scripts/make-24bit-color-term.sh"
-  - "<<home>>/bin/misc-scripts/setup-mosh.sh <<user>> <<home>>"
+  - "sudo <<home>>/bin/misc-scripts/setup-doom-emacs.sh <<user>> <<home>>"
+  - "sudo <<home>>/bin/misc-scripts/make-24bit-color-term.sh"
+  - "sudo <<home>>/bin/misc-scripts/setup-mosh.sh <<user>> <<home>>"
+#+end_src
+
+
+* Dev Container configuration for LXD
+:PROPERTIES:
+:header-args: :tangle dev-cont.yaml
+:END:
+
+Note: the | after user.user-data is REQUIRED! [[id:82401838-c36b-48e0-a2e1-0887ee19b566][Create new LXD profile]] has a typo and doesn't include the character.
+
+#+begin_src yaml :noweb yes
+config:
+  user.user-data: |
+    #cloud-config
+    <<dev-vm-config>>
+description: development container
+devices:
+  eth0:
+    name: eth0
+    network: lxdbr0
+    type: nic
+  root:
+    path: /
+    pool: default
+    type: disk
+name: dev-cont
+used_by: []
 #+end_src

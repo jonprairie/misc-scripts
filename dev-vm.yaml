@@ -2,6 +2,7 @@ locale: en_US
 
 package_update: true
 package_upgrade: true
+package_reboot_if_required: true
 packages:
   - ripgrep
   - fd-find
@@ -23,7 +24,7 @@ packages:
 
 snap:
   commands:
-    - snap install emacs
+    - snap install emacs --classic
     - snap install multipass
 
 hostname: dev-vm
@@ -37,10 +38,12 @@ users:
 runcmd:
   - "mkdir -p /home/jonnyp/bin"
   - "git clone https://github.com/jonprairie/misc-scripts.git /home/jonnyp/bin/misc-scripts"
-  - "/home/jonnyp/bin/misc-scripts/setup-dotfiles.sh jonnyp /home/jonnyp https://github.com/jonprairie/dots.git"
-  - "/home/jonnyp/bin/misc-scripts/setup-sshd-config.sh jonnyp /home/jonnyp"
-  - "/home/jonnyp/bin/misc-scripts/setup-auth-keys.sh jonnyp /home/jonnyp https://github.com/jonprairie/.ssh.git"
+  - "chmod +x /home/jonnyp/bin/misc-scripts/setup-scripts.sh"
+  - "sudo /home/jonnyp/bin/misc-scripts/setup-scripts.sh jonnyp /home/jonnyp"
+  - "sudo /home/jonnyp/bin/misc-scripts/setup-dotfiles.sh jonnyp /home/jonnyp https://github.com/jonprairie/dots.git"
+  - "sudo /home/jonnyp/bin/misc-scripts/setup-sshd-config.sh jonnyp /home/jonnyp"
+  - "sudo /home/jonnyp/bin/misc-scripts/setup-auth-keys.sh jonnyp /home/jonnyp https://github.com/jonprairie/.ssh.git"
   - "git clone https://github.com/jonprairie/.doom.d.git /home/jonnyp/.doom.d"
-  - "/home/jonnyp/bin/misc-scripts/setup-doom-emacs.sh jonnyp /home/jonnyp"
-  - "/home/jonnyp/bin/misc-scripts/make-24bit-color-term.sh"
-  - "/home/jonnyp/bin/misc-scripts/setup-mosh.sh jonnyp /home/jonnyp"
+  - "sudo /home/jonnyp/bin/misc-scripts/setup-doom-emacs.sh jonnyp /home/jonnyp"
+  - "sudo /home/jonnyp/bin/misc-scripts/make-24bit-color-term.sh"
+  - "sudo /home/jonnyp/bin/misc-scripts/setup-mosh.sh jonnyp /home/jonnyp"
