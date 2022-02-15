@@ -6,7 +6,9 @@ REPO=$3
 
 cd $HOME
 
+shopt -s dotglob
 FILES=$HOME/*
+shopt -u dotglob
 
 for f in $FILES
 do
