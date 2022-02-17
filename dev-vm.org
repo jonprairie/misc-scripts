@@ -164,9 +164,9 @@ runcmd:
   - "sudo -u <<user>> <<home>>/bin/misc-scripts/make-24bit-color-term.sh"
   - "sudo -u <<user>> git config --global user.name <<user>>"
   - "sudo -u <<user>> git config --global user.email <<email>>"
-  - "<<home>>/bin/misc-scripts/setup-sshd-config.sh <<user>> <<home>>"
-  - "<<home>>/bin/misc-scripts/setup-mosh.sh <<user>> <<home>>"
-  - "<<home>>/bin/misc-scripts/setup-sbcl.sh <<user>> <<home>>"
+  - "sudo <<home>>/bin/misc-scripts/setup-sshd-config.sh <<user>> <<home>>"
+  - "sudo <<home>>/bin/misc-scripts/setup-mosh.sh <<user>> <<home>>"
+  - "sudo <<home>>/bin/misc-scripts/setup-sbcl.sh <<user>> <<home>>"
 #+end_src
 
 

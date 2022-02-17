@@ -49,9 +49,9 @@ config:
       - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/make-24bit-color-term.sh"
       - "sudo -u jonnyp git config --global user.name jonnyp"
       - "sudo -u jonnyp git config --global user.email jon.a.prairie@gmail.com"
-      - "/home/jonnyp/bin/misc-scripts/setup-sshd-config.sh jonnyp /home/jonnyp"
-      - "/home/jonnyp/bin/misc-scripts/setup-mosh.sh jonnyp /home/jonnyp"
-      - "/home/jonnyp/bin/misc-scripts/setup-sbcl.sh jonnyp /home/jonnyp"
+      - "sudo /home/jonnyp/bin/misc-scripts/setup-sshd-config.sh jonnyp /home/jonnyp"
+      - "sudo /home/jonnyp/bin/misc-scripts/setup-mosh.sh jonnyp /home/jonnyp"
+      - "sudo /home/jonnyp/bin/misc-scripts/setup-sbcl.sh jonnyp /home/jonnyp"
 description: development container
 devices:
   eth0:
