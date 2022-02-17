@@ -8,7 +8,7 @@ cd "$HOME"
 
 # clpm
 curl -sO https://files.clpm.dev/clpm/clpm-0.4.1-linux-amd64.tar.gz \
-    && -sO https://files.clpm.dev/clpm/clpm-0.4.1.DIGESTS.asc \
+    && curl -sO https://files.clpm.dev/clpm/clpm-0.4.1.DIGESTS.asc \
     && gpg --keyserver hkps://keyserver.ubuntu.com --receive-keys 0x10327DE761AB977333B1AD7629932AC49F3044CE \
     && gpg --decrypt clpm-0.4.1.DIGESTS.asc \
     && cat clpm-0.4.1.DIGESTS.asc | grep "$(shasum -a 512 clpm-0.4.1-linux-amd64.tar.gz)" \
