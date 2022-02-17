@@ -8,7 +8,6 @@ cd $HOME
 
 shopt -s dotglob
 FILES=$HOME/*
-shopt -u dotglob
 
 for f in $FILES
 do
@@ -32,3 +31,5 @@ do
         "$basef already exists! leaving $f alone."
     fi
 done
+
+shopt -u dotglob
