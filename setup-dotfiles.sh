@@ -23,7 +23,7 @@ for f in $HOME/*.old
 do
     basef=$(basename "$f" .old)
     echo "checking for $basef"
-    if [ -e $f ]; then
+    if [ -e $basef ]; then
         "$basef already exists! leaving $f alone."
     else
         echo "moving $f back to $basef"
