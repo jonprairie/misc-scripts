@@ -153,7 +153,9 @@ download and run some provisioning scripts
 
 #+begin_src yaml :noweb yes
 runcmd:
-  - "ls -la <<home>>"
+  - "sudo <<home>>/bin/misc-scripts/setup-sshd-config.sh <<user>> <<home>>"
+  - "sudo <<home>>/bin/misc-scripts/setup-mosh.sh <<user>> <<home>>"
+  - "sudo <<home>>/bin/misc-scripts/setup-sbcl.sh <<user>> <<home>>"
   - "sudo -u <<user>> mkdir -p <<home>>/bin"
   - "sudo -u <<user>> git clone <<misc-scripts-repo>> <<home>>/bin/misc-scripts"
   - "sudo -u <<user>> <<home>>/bin/misc-scripts/setup-scripts.sh <<user>> <<home>>"
@@ -164,9 +166,6 @@ runcmd:
   - "sudo -u <<user>> <<home>>/bin/misc-scripts/make-24bit-color-term.sh"
   - "sudo -u <<user>> git config --global user.name <<user>>"
   - "sudo -u <<user>> git config --global user.email <<email>>"
-  - "sudo <<home>>/bin/misc-scripts/setup-sshd-config.sh <<user>> <<home>>"
-  - "sudo <<home>>/bin/misc-scripts/setup-mosh.sh <<user>> <<home>>"
-  - "sudo <<home>>/bin/misc-scripts/setup-sbcl.sh <<user>> <<home>>"
 #+end_src
 
 
