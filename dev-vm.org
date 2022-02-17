@@ -143,7 +143,6 @@ download and run some provisioning scripts
 runcmd:
   - "mkdir -p <<home>>/bin"
   - "git clone <<misc-scripts-repo>> <<home>>/bin/misc-scripts"
-  - "chmod +x <<home>>/bin/misc-scripts/setup-scripts.sh"
   - "sudo <<home>>/bin/misc-scripts/setup-scripts.sh <<user>> <<home>>"
   - "sudo <<home>>/bin/misc-scripts/setup-dotfiles.sh <<user>> <<home>> <<dots-repo>>"
   - "sudo <<home>>/bin/misc-scripts/setup-sshd-config.sh <<user>> <<home>>"
