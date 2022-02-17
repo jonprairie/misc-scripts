@@ -36,17 +36,17 @@ config:
         shell: /bin/bash
         sudo: ['ALL=(ALL) NOPASSWD:ALL']
     runcmd:
-      - "mkdir -p /home/jonnyp/bin"
-      - "git clone https://github.com/jonprairie/misc-scripts.git /home/jonnyp/bin/misc-scripts"
-      - "sudo /home/jonnyp/bin/misc-scripts/setup-scripts.sh jonnyp /home/jonnyp"
-      - "sudo /home/jonnyp/bin/misc-scripts/setup-dotfiles.sh jonnyp /home/jonnyp https://github.com/jonprairie/dots.git"
-      - "sudo /home/jonnyp/bin/misc-scripts/setup-sshd-config.sh jonnyp /home/jonnyp"
-      - "sudo /home/jonnyp/bin/misc-scripts/setup-auth-keys.sh jonnyp /home/jonnyp https://github.com/jonprairie/.ssh.git"
-      - "git clone https://github.com/jonprairie/.doom.d.git /home/jonnyp/.doom.d"
-      - "sudo /home/jonnyp/bin/misc-scripts/setup-doom-emacs.sh jonnyp /home/jonnyp"
-      - "sudo /home/jonnyp/bin/misc-scripts/make-24bit-color-term.sh"
-      - "sudo /home/jonnyp/bin/misc-scripts/setup-mosh.sh jonnyp /home/jonnyp"
-      - "sudo /home/jonnyp/bin/misc-scripts/setup-sbcl.sh jonnyp /home/jonnyp"
+      - "sudo -u jonnyp mkdir -p /home/jonnyp/bin"
+      - "sudo -u jonnyp git clone https://github.com/jonprairie/misc-scripts.git /home/jonnyp/bin/misc-scripts"
+      - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/setup-scripts.sh jonnyp /home/jonnyp"
+      - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/setup-dotfiles.sh jonnyp /home/jonnyp https://github.com/jonprairie/dots.git"
+      - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/setup-sshd-config.sh jonnyp /home/jonnyp"
+      - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/setup-auth-keys.sh jonnyp /home/jonnyp https://github.com/jonprairie/.ssh.git"
+      - "sudo -u jonnyp git clone https://github.com/jonprairie/.doom.d.git /home/jonnyp/.doom.d"
+      - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/setup-doom-emacs.sh jonnyp /home/jonnyp"
+      - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/make-24bit-color-term.sh"
+      - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/setup-mosh.sh jonnyp /home/jonnyp"
+      - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/setup-sbcl.sh jonnyp /home/jonnyp"
 description: development container
 devices:
   eth0:
