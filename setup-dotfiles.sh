@@ -24,10 +24,10 @@ do
     basef=$(basename "$f" .old)
     echo "checking for $basef"
     if [ -e $f ]; then
+        "$basef already exists! leaving $f alone."
+    else
         echo "moving $f back to $basef"
         mv $f $basef
-    else
-        "$basef already exists! leaving $f alone."
     fi
 done
 
