@@ -19,9 +19,8 @@ git init
 git remote add origin $REPO
 git pull origin master
 
-for f in $FILES
+for f in $HOME/*.old
 do
-    # apparently bash automatically converts $FILES to have the .old extension?
     basef=$(basename "$f" .old)
     echo "checking for $basef"
     if [ -e $f ]; then
