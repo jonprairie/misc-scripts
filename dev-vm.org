@@ -53,7 +53,7 @@ https://github.com/<<gh-user>>
 ** Locale
 
 #+begin_src yaml
-locale: en_US
+locale: en_US.UTF-8
 #+end_src
 
 ** Apt dependencies

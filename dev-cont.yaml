@@ -1,7 +1,7 @@
 config:
   user.user-data: |
     #cloud-config
-    locale: en_US
+    locale: en_US.UTF-8
     package_update: true
     package_upgrade: true
     package_reboot_if_required: true
