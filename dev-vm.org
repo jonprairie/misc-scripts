@@ -157,15 +157,15 @@ runcmd:
   - "sudo -u <<user>> git clone <<misc-scripts-repo>> <<home>>/bin/misc-scripts"
   - "sudo -u <<user>> <<home>>/bin/misc-scripts/setup-scripts.sh <<user>> <<home>>"
   - "sudo -u <<user>> <<home>>/bin/misc-scripts/setup-dotfiles.sh <<user>> <<home>> <<dots-repo>>"
-  - "sudo -u <<user>> <<home>>/bin/misc-scripts/setup-sshd-config.sh <<user>> <<home>>"
   - "sudo -u <<user>> <<home>>/bin/misc-scripts/setup-auth-keys.sh <<user>> <<home>> <<dotssh-repo>>"
   - "sudo -u <<user>> git clone <<dotdoom-repo>> <<home>>/.doom.d"
   - "sudo -u <<user>> <<home>>/bin/misc-scripts/setup-doom-emacs.sh <<user>> <<home>>"
   - "sudo -u <<user>> <<home>>/bin/misc-scripts/make-24bit-color-term.sh"
-  - "sudo -u <<user>> <<home>>/bin/misc-scripts/setup-mosh.sh <<user>> <<home>>"
-  - "sudo -u <<user>> <<home>>/bin/misc-scripts/setup-sbcl.sh <<user>> <<home>>"
   - "sudo -u <<user>> git config --global user.name <<user>>"
   - "sudo -u <<user>> git config --global user.email <<email>>"
+  - "<<home>>/bin/misc-scripts/setup-sshd-config.sh <<user>> <<home>>"
+  - "<<home>>/bin/misc-scripts/setup-mosh.sh <<user>> <<home>>"
+  - "<<home>>/bin/misc-scripts/setup-sbcl.sh <<user>> <<home>>"
 #+end_src
 
 
