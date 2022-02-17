@@ -113,7 +113,7 @@ packages:
 snap:
   commands:
     - snap install emacs --classic
-    - snap install multipass
+    - snap install lxd
 #+end_src
 
 ** Hostname
