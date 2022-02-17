@@ -73,6 +73,12 @@ locale: en_US.UTF-8
   - libvterm-dev
 #+end_src
 
+#+name: doom-misc-deps
+#+begin_src yaml
+  - xclip
+  - ispell
+#+end_src
+
 mosh build dependencies from: https://gist.github.com/charliesneath/3c0790f00b4ccd81c57d49c9033e9b12
 
 should be able to install from apt once [[https://github.com/mobile-shell/mosh/issues/1115][this issue]] is resolved.
@@ -102,6 +108,7 @@ package_reboot_if_required: true
 packages:
   <<doom-deps>>
   <<doom-vterm-deps>>
+  <<doom-misc-deps>>
   <<mosh-deps>>
   - sbcl
   - npm

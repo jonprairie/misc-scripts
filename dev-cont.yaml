@@ -10,6 +10,8 @@ config:
       - fd-find
       - cmake
       - libvterm-dev
+      - xclip
+      - ispell
       - debhelper
       - autotools-dev
       - protobuf-compiler
