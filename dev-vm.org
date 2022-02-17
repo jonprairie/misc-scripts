@@ -68,20 +68,20 @@ locale: en_US.UTF-8
 
 #+name: doom-deps
 #+begin_src yaml
-  - ripgrep
-  - fd-find
+- ripgrep
+- fd-find
 #+end_src
 
 #+name: doom-vterm-deps
 #+begin_src yaml
-  - cmake
-  - libvterm-dev
+- cmake
+- libvterm-dev
 #+end_src
 
 #+name: doom-misc-deps
 #+begin_src yaml
-  - xclip
-  - ispell
+- xclip
+- ispell
 #+end_src
 
 mosh build dependencies from: https://gist.github.com/charliesneath/3c0790f00b4ccd81c57d49c9033e9b12
@@ -90,18 +90,18 @@ should be able to install from apt once [[https://github.com/mobile-shell/mosh/i
 
 #+name: mosh-deps
 #+begin_src yaml
-  - debhelper
-  - autotools-dev
-  - protobuf-compiler
-  - libprotobuf-dev
-  - dh-autoreconf
-  - pkg-config
-  - libutempter-dev
-  - zlib1g-dev
-  - libncurses5-dev
-  - libssl-dev
-  - bash-completion
-  - locales
+- debhelper
+- autotools-dev
+- protobuf-compiler
+- libprotobuf-dev
+- dh-autoreconf
+- pkg-config
+- libutempter-dev
+- zlib1g-dev
+- libncurses5-dev
+- libssl-dev
+- bash-completion
+- locales
 #+end_src
 
 ** Apt packages
@@ -153,6 +153,7 @@ download and run some provisioning scripts
 
 #+begin_src yaml :noweb yes
 runcmd:
+  - "ls -la <<home>>"
   - "sudo -u <<user>> mkdir -p <<home>>/bin"
   - "sudo -u <<user>> git clone <<misc-scripts-repo>> <<home>>/bin/misc-scripts"
   - "sudo -u <<user>> <<home>>/bin/misc-scripts/setup-scripts.sh <<user>> <<home>>"
