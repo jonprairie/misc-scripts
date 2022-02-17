@@ -22,6 +22,7 @@ packages:
   - locales
   - sbcl
   - npm
+  - shellcheck
 
 snap:
   commands:

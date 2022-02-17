@@ -105,6 +105,7 @@ packages:
   <<mosh-deps>>
   - sbcl
   - npm
+  - shellcheck
 #+end_src
 
 ** Snap packages

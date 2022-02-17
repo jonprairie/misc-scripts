@@ -24,6 +24,7 @@ config:
       - locales
       - sbcl
       - npm
+      - shellcheck
     snap:
       commands:
         - snap install emacs --classic
