@@ -51,3 +51,5 @@ runcmd:
   - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/make-24bit-color-term.sh"
   - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/setup-mosh.sh jonnyp /home/jonnyp"
   - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/setup-sbcl.sh jonnyp /home/jonnyp"
+  - "sudo -u jonnyp git config --global user.name jonnyp"
+  - "sudo -u jonnyp git config --global user.email jon.a.prairie@gmail.com"

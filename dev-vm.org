@@ -15,6 +15,11 @@
 jonnyp
 #+end_src
 
+#+name: email
+#+begin_src text
+jon.a.prairie@gmail.com
+#+end_src
+
 #+name: home
 #+begin_src text
 /home/<<user>>
@@ -159,6 +164,8 @@ runcmd:
   - "sudo -u <<user>> <<home>>/bin/misc-scripts/make-24bit-color-term.sh"
   - "sudo -u <<user>> <<home>>/bin/misc-scripts/setup-mosh.sh <<user>> <<home>>"
   - "sudo -u <<user>> <<home>>/bin/misc-scripts/setup-sbcl.sh <<user>> <<home>>"
+  - "sudo -u <<user>> git config --global user.name <<user>>"
+  - "sudo -u <<user>> git config --global user.email <<email>>"
 #+end_src
 
 
