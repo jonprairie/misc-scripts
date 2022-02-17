@@ -20,6 +20,7 @@ packages:
   - libssl-dev
   - bash-completion
   - locales
+  - sbcl
   - npm
 
 snap:
@@ -47,3 +48,4 @@ runcmd:
   - "sudo /home/jonnyp/bin/misc-scripts/setup-doom-emacs.sh jonnyp /home/jonnyp"
   - "sudo /home/jonnyp/bin/misc-scripts/make-24bit-color-term.sh"
   - "sudo /home/jonnyp/bin/misc-scripts/setup-mosh.sh jonnyp /home/jonnyp"
+  - "sudo /home/jonnyp/bin/misc-scripts/setup-sbcl.sh jonnyp /home/jonnyp"
