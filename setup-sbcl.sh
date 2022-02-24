@@ -29,3 +29,5 @@ echo '("quicklisp" :type :quicklisp :url "https://beta.quicklisp.org/dist/quickl
 clpm client source-registry.d > "$SRCCONF/20-clpm-client.conf"
 
 clpm client rc --quicklisp-alternative > "$HOME/.sbclrc"
+
+echo "(:tree \"$HOME/src/\")" > "$SRCCONF/10-local-projects.conf"
