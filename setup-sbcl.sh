@@ -19,3 +19,13 @@ curl -sO https://files.clpm.dev/clpm/clpm-0.4.1-linux-amd64.tar.gz \
     && rm clpm-0.4.1-linux-amd64.tar.gz \
     && rm clpm-0.4.1.DIGESTS.asc \
     && rm -rf clpm-0.4.1-linux-amd64
+
+SRCCONF="$HOME/.config/common-lisp/source-registry.conf.d"
+CLPMCONF="$HOME/.config/clpm"
+
+mkdir -p "$CLPMCONF"
+mkdir -p "$SRCCONF"
+echo '("quicklisp" :type :quicklisp :url "https://beta.quicklisp.org/dist/quicklisp.txt")' > "$CLPMCONF/sources.conf"
+clpm client source-registry.d > "$SRCCONF/20-clpm-client.conf"
+
+clpm client rc --quicklisp-alternative > "$HOME/.sbclrc"
