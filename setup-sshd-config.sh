@@ -8,3 +8,5 @@ if [ -e /etc/ssh/sshd_config ]; then
 fi
 
 cp $HOME/bin/misc-scripts/sshd_config /etc/ssh/sshd_config
+
+systemctl enable ssh.service
