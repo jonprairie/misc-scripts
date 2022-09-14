@@ -82,6 +82,7 @@ locale: en_US.UTF-8
 #+begin_src yaml
 - xclip
 - ispell
+- unzip
 #+end_src
 
 mosh build dependencies from: https://gist.github.com/charliesneath/3c0790f00b4ccd81c57d49c9033e9b12

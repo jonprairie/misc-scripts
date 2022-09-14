@@ -12,6 +12,7 @@ config:
       - libvterm-dev
       - xclip
       - ispell
+      - unzip
       - debhelper
       - autotools-dev
       - protobuf-compiler
