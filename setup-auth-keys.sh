@@ -17,6 +17,6 @@ git init
 git remote add origin $REPO
 git pull origin master
 
-if [ -e "authorized_keys2" ]; then
-    cat authorized_keys2 >> authorized_keys
+if [ -e "$HOME/.ssh/authorized_keys2" ]; then
+    cat $HOME/.ssh/authorized_keys2 >> $HOME/.ssh/authorized_keys
 fi
