@@ -50,8 +50,7 @@ config:
       - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/make-24bit-color-term.sh"
       - "sudo -u jonnyp git config --global user.name jonnyp"
       - "sudo -u jonnyp git config --global user.email jon.a.prairie@gmail.com"
-      - "sudo -u jonnyp git clone https://github.com/jonprairie/.doom.d.git /home/jonnyp/.doom.d"
-      - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/setup-doom-emacs.sh jonnyp /home/jonnyp"
+      - "sudo -u jonnyp /home/jonnyp/bin/misc-scripts/setup-doom-emacs.sh jonnyp /home/jonnyp https://github.com/jonprairie/.doom.d.git"
 description: development container
 devices:
   eth0:

@@ -165,8 +165,7 @@ runcmd:
   - "sudo -u <<user>> <<home>>/bin/misc-scripts/make-24bit-color-term.sh"
   - "sudo -u <<user>> git config --global user.name <<user>>"
   - "sudo -u <<user>> git config --global user.email <<email>>"
-  - "sudo -u <<user>> git clone <<dotdoom-repo>> <<home>>/.doom.d"
-  - "sudo -u <<user>> <<home>>/bin/misc-scripts/setup-doom-emacs.sh <<user>> <<home>>"
+  - "sudo -u <<user>> <<home>>/bin/misc-scripts/setup-doom-emacs.sh <<user>> <<home>> <<dotdoom-repo>>"
 #+end_src
 
 

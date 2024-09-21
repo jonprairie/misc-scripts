@@ -2,6 +2,14 @@
 
 USER=$1
 HOME=$2
+REPO=$3
 
-git clone https://github.com/hlissner/doom-emacs $HOME/.emacs.d
-yes | $HOME/.emacs.d/bin/doom install
+mkdir -p "$HOME/.config"
+cd "$HOME/.config" || exit
+
+git clone https://github.com/hlissner/doom-emacs emacs
+yes | ./emacs/bin/doom install
+git clone "$REPO" doom.new
+
+mv doom doom.old
+mv doom.new doom
