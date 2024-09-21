@@ -23,8 +23,8 @@ packages:
   - libssl-dev
   - bash-completion
   - locales
-  - sbcl
   - npm
+  - jq
   - shellcheck
 
 snap:

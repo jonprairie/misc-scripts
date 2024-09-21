@@ -116,8 +116,8 @@ packages:
   <<doom-vterm-deps>>
   <<doom-misc-deps>>
   <<mosh-deps>>
-  - sbcl
   - npm
+  - jq
   - shellcheck
 #+end_src
 
